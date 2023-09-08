@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="{% static 'js/form.js' %}"></script>
+</head>
+<body>
+
+
+
+<div class="Request">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="titlepage3">
+          <h2>{{name}}</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+<!--          <h4>{{name}}</h4>-->
+<form method="POST" action="form">
+  {% csrf_token %}
+  <input type="text" name="name" placeholder="Name"><br><br>
+  <input type="date" name="dob" placeholder="DOB"><br><br>
+  <input type="number" name="age" placeholder="Age"><br><br>
+  <div class="form-check">
+  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+  <label class="form-check-label" for="exampleRadios1">
+    Male
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+  <label class="form-check-label" for="exampleRadios2">
+    Female
+  </label>
+</div><br>
+  <input type="tel" name="number" placeholder="Phone_Number"><br><br>
+  <input type="email" name="email" placeholder="email"><br><br>
+  <input type="text" name="address" placeholder="address"><br><br>
+
+
+
+ <select id="category" size="1" onchange="makeSubmenu(this.value)">
+<option value="" disabled selected>Choose District</option>
+<option>Trivandrum</option>
+<option>Ernakulam</option>
+     <option>Kannur</option>
+     <option>Kozhikode</option>
+     <option>Malapuram</option>
+     <option>Pattanamtitta</option>
+</select>
+    <select id="categorySelect" size="1">
+<option value="" disabled selected>Choose Branch</option>
+<option></option>
+</select>
+<br><br>
+
+
+     <label>choose Account type</label>
+      <select name="account" id="account">
+          <option value="savings">Savings account</option>
+          <option value="current">Current account</option>
+          <option value="current">Salary account</option>
+          <option value="current">Joint account</option>
+          <option value="current">Reccuring deposit account</option>
+      </select><br><br><br><br>
+
+ <label>Card Type:</label><br>   <input type="checkbox" id="card1" name="card1" value="Credit Card">
+  <label for="card1"> Credit card</label><br>
+  <input type="checkbox" id="card2" name="card2" value="Debit card">
+  <label for="card2"> Debit card</label><br>
+  <input type="checkbox" id="card3" name="card3" value="Boat">
+  <label for="card3"> Visa ATM cards</label><br><br>
+     <input type="checkbox" id="card4" name="card4" value="Debit card">
+  <label for="card4"> Rupay card</label><br>
+     <input type="checkbox" id="card5" name="card5" value="Debit card">
+  <label for="card5"> Prepaid card</label><br>
+   <input type="checkbox" id="card6" name="card6" value="Debit card">
+  <label for="card6"> Business Credit card</label><br><br>
+
+
+
+<button type="button"  onclick="alert('Application Accepted')">Submit </button><br>
+
+    <a href="{% url 'bank_app:index' %}">Go Home</a><br><br>
+
+
+<button type="button" class="btn btn-info"><a href="{% url 'credentials:logout' %}">Logout</a></button>
+
+
+
+</form>
+
+  </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
